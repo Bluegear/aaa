@@ -1,0 +1,9 @@
+Django==1.9
+Markdown==2.6.5
+django-braces==1.8.1
+django-cors-headers==1.1.0
+django-filter==0.11.0
+django-oauth-toolkit==0.10.0
+djangorestframework==3.3.2
+oauthlib==1.0.3
+six==1.10.0
