@@ -1,4 +1,5 @@
 1. Clone source code from https://github.com/Bluegear/mcauth
+1. virtualenv venv
 1. source venv/bin/activate
 1. pip install -r requirements.txt
 1. python manage.py migrate
