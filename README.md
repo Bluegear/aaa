@@ -26,10 +26,26 @@
 1. python manage.py migrate
 
 ## Prerequisite on Alpha/Staging
-- install pip if not exists
-- pip install virtualenv
-- install httpd if not exists
-    - yum install httpd
-    - systemctl start httpd
-    - systemctl enable httpd
-    - rm -f /etc/httpd/conf.d/welcome.conf
+1. install pip if not exists
+1. `pip install virtualenv`
+1. `virtualenv -p /usr/bin/python2.7 venv`
+1. install httpd if not exists
+    - `yum install httpd`
+    - `systemctl start httpd`
+    - `systemctl enable httpd`
+    - `rm -f /etc/httpd/conf.d/welcome.conf`
+1. `yum install httpd-devel`
+1. `yum install gcc`
+1. `yum install python-devel`
+
+## Pre deploy scripts
+1. Enter project directory
+1. source venv/bin/activate
+1. `pip install -r requirements.txt`
+1. `python manage.py migrate`
+1. Create directory 'static' if not exists.
+1. `python manage.py collectstatic`
+1. For first deploy run `python manage.py createsuper` then supply admin username, email and password
+
+## Run Service on Alpha/Staging
+1. `python manage.py runmodwsgi --user apache group apache --port 80 &`
