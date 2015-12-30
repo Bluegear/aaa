@@ -45,7 +45,12 @@
 1. `python manage.py migrate`
 1. Create directory 'static' if not exists.
 1. `python manage.py collectstatic`
-1. For first deploy run `python manage.py createsuper` then supply admin username, email and password
+1. For first deploy run these commands.
+    - Make sure that project directory belong to user and group 'apache'
+    - `python manage.py createsuper` then supply admin username, email and password
+    - `chown apache db.sqlite3`
+    - `chgrp apache db.sqlite3`
+    - `chmod 774 db.sqlite3`
 
 ## Run Service on Alpha/Staging
 1. `python manage.py runmodwsgi --user apache group apache --port 80 &`
