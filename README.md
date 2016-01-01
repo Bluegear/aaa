@@ -1,4 +1,6 @@
-## Prerequisite on Dev
+# Development Note
+
+## Prerequisite on your local environment
 1. python 2.7
 1. pip
 
@@ -25,6 +27,19 @@
 1. `source venv/bin/activate`
 1. `pip install -r requirements.txt`
 1. `python manage.py migrate`
+
+## Adding dependencies
+1. `source venv/bin/activate`
+1. `pip install <python package>`
+1. `pip freeze > requirements.txt`
+
+## Adding Model that represent database table
+1. Make change to your models.
+1. run `python manage.py makemigrations`
+1. run `python manage.py migrate`
+1. Commit and push your changes.
+
+# CI/CD Note
 
 ## Prerequisite on Alpha/Staging
 1. install pip if not exists
@@ -55,8 +70,3 @@
 
 ## Run Service on Alpha/Staging
 1. `python manage.py runmodwsgi --user apache group apache --port 80 &`
-
-## Adding dependencies
-1. `source venv/bin/activate`
-1. `pip install <python package>`
-1. `pip freeze > requirements.txt`
