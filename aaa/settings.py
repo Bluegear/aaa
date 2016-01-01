@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'mod_wsgi.server',
     'web',
     'mcprofile',
+    'oauthext',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -154,4 +155,9 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=sample',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'oauthext.auth.WalletAuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
