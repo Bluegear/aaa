@@ -16,15 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from sample import views
+from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^admin/', admin.site.urls),
-    url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^oauth2/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    url(r'^sample/', include('sample.urls')),
-    url(r'^web/', include('web.urls')),
-    url(r'^oauthext/', include('oauthext.urls')),
+    url(r'^introspect', views.introspect),
 ]

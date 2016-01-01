@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 import sample
 
+
 @api_view(['GET'])
 @permission_classes((AllowAny, ))
 def index(request):
