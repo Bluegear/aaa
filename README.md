@@ -6,7 +6,7 @@
 1. Clone source code from https://github.com/Bluegear/as
 1. Run following commands 
 1. `pip install virtualenv`
-1. `virtualenv -p /usr/bin/python2.7 venv`
+1. `virtualenv -p python2.7 venv`
 1. `source venv/bin/activate`
 1. `pip install -r requirements.txt`
 1. `python manage.py migrate`
@@ -22,13 +22,14 @@
     - Run `pip install -r requirements.txt` again.
 
 ## After pull request developer should runs these commands.
-1. pip install -r requirements.txt
-1. python manage.py migrate
+1. `source venv/bin/activate`
+1. `pip install -r requirements.txt`
+1. `python manage.py migrate`
 
 ## Prerequisite on Alpha/Staging
 1. install pip if not exists
 1. `pip install virtualenv`
-1. `virtualenv -p /usr/bin/python2.7 venv`
+1. `virtualenv -p python2.7 venv`
 1. install httpd if not exists
     - `yum install httpd`
     - `systemctl start httpd`
@@ -40,7 +41,7 @@
 
 ## Pre deploy scripts
 1. Enter project directory
-1. source venv/bin/activate
+1. `source venv/bin/activate`
 1. `pip install -r requirements.txt`
 1. `python manage.py migrate`
 1. Create directory 'static' if not exists.
@@ -54,3 +55,8 @@
 
 ## Run Service on Alpha/Staging
 1. `python manage.py runmodwsgi --user apache group apache --port 80 &`
+
+## Adding dependencies
+1. `source venv/bin/activate`
+1. `pip install <python package>`
+1. `pip freeze > requirements.txt`
