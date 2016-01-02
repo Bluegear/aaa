@@ -1,4 +1,4 @@
 from django.contrib import admin
-from mcprofile.models import Merchant
+from mcweb.models import Merchant
 
 admin.site.register(Merchant)

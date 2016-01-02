@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^oauth2/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^sample/', include('sample.urls')),
-    url(r'^web/', include('web.urls')),
+    url(r'^mcweb/', include('mcweb.urls', namespace='mcweb')),
     url(r'^oauthext/', include('oauthext.urls')),
 ]

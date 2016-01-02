@@ -17,6 +17,7 @@ def index(request):
 
     return Response({"apis": apis})
 
+
 # TODO: Change to appropriate method and permission e.g. POST with Authorization header.
 @api_view(['GET'])
 @permission_classes((AllowAny, ))

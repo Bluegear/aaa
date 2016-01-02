@@ -4,5 +4,5 @@ from django.db import models
 
 
 class Merchant(models.Model):
-    display_name = models.CharField(max_length=100)
+    display_name = models.CharField(max_length=100, null=False, unique=True)
 
