@@ -43,10 +43,10 @@ class SignupView(APIView):
                         template_name='mcweb/signup.html'
                 )
         except IntegrityError:
+            serializer._errors = {'display_name': [u'This name is already in use.']}
             return Response(
                     {
-                        'serializer': serializer,
-                        'error': 'This name is already in used.'
+                        'serializer': serializer
                     },
                     template_name='mcweb/signup.html'
             )
