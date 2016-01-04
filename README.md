@@ -11,6 +11,7 @@
 1. `virtualenv -p python3.5 venv`
 1. `source venv/bin/activate`
 1. For Mac OSX run `xcode-select --install` to avoid installation error with mod_wsgi.
+1. For Mac OSX run `CFLAGS=-I/usr/include/apr-1 pip install mod_wsgi` to compile/install mod_wsgi first.
 1. `pip install -r requirements.txt`
 1. `python manage.py migrate`
 1. Run `python manage.py createsuperuser` and supply these values.
