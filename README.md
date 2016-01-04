@@ -10,18 +10,13 @@
 1. `pip3 install virtualenv`
 1. `virtualenv -p python3.5 venv`
 1. `source venv/bin/activate`
+1. For Mac OSX run `xcode-select --install` to avoid installation error with mod_wsgi.
 1. `pip install -r requirements.txt`
 1. `python manage.py migrate`
 1. Run `python manage.py createsuperuser` and supply these values.
     -- username: admin
     -- email: admin@as.com
     -- password: pass99word
-
-
-## Issues with dependencies installation
-1. Error occur while installing mod_wsgi on mac OSX, For detail see https://github.com/GrahamDumpleton/mod_wsgi/issues/50#issuecomment-115378767
-    - Run command `xcode-select --install`
-    - Run `pip install -r requirements.txt` again.
 
 ## After pull request developer should runs these commands.
 1. `source venv/bin/activate`
