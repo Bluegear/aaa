@@ -7,8 +7,8 @@
 ## How to start server after check out
 1. Clone source code from https://github.com/Bluegear/as
 1. Run following commands 
-1. `pip install virtualenv`
-1. `virtualenv venv`
+1. `pip3 install virtualenv`
+1. `virtualenv -p python3.5 venv`
 1. `source venv/bin/activate`
 1. `pip install -r requirements.txt`
 1. `python manage.py migrate`
@@ -43,8 +43,8 @@
 
 ## Prerequisite on Alpha/Staging
 1. install pip if not exists
-1. `pip install virtualenv`
-1. `virtualenv venv`
+1. `pip3 install virtualenv`
+1. `virtualenv -p python3.5 venv`
 1. install http\d if not exists
     - `yum install httpd`
     - `systemctl start httpd`
