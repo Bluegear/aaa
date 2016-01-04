@@ -1,7 +1,7 @@
 # Development Note
 
 ## Prerequisite on your local environment
-1. python 3.4
+1. python 3.5
 1. pip
 
 ## How to start server after check out
