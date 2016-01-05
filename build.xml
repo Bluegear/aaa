@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="${project}" default="rpm" basedir=".">
+<project name="triple-a" default="rpm" basedir=".">
     <property name="projectname"  value="${project}"/>
     <property name="build.dir"    value="${basedir}/build"/>
     <property name="release"      value="${release}"/>
