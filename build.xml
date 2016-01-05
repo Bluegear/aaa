@@ -1,52 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <project name="${project}" default="rpm" basedir=".">
-<property name="projectname" value="${project}"/>
-<property name="build.dir" value="${basedir}/build"/>
-<property name="release" value="${release}"/>
-<property name="buildarch" value="${arch}"/>
-<target name="zip" description="create zip file">
-<echo>Create zip file</echo>
-<echo file="${basedir}/version.txt" append="false">${version}-${build_number}</echo>
-<zip destfile="${basedir}/triple-a-${version}-${build_number}.zip">
-<zipfileset dir="${basedir}" excludes="*.pyc,.gitignore,*.zip,.git/*,.coverage"/>
-</zip>
-</target>
-<target name="clean">
-<delete dir="${build.dir}"/>
-</target>
-<target name="get_buildparams">
-<echo>Build Arch : ${buildarch}</echo>
-<echo>Version : ${version}</echo>
-<echo>Release : ${release}</echo>
-<echo>Project Name : ${projectname}</echo>
-<property name="buildparams" value="--define "buildarch ${buildarch}" --define "version ${version}" --define "release ${release}" --define "projectname ${projectname}""/>
-</target>
-<target name="get_version_number">
-<exec executable="git" outputproperty="TAG_NUMBER">
-<arg value="rev-list"/>
-<arg value="--tags"/>
-<arg value="--max-count=1"/>
-</exec>
-<exec executable="git" outputproperty="version">
-<arg value="describe"/>
-<arg value="--tag"/>
-<arg value="${TAG_NUMBER}"/>
-</exec>
-<echo>Get Version Number : ${version}</echo>
-</target>
-<target name="rpm" description="Create rpm by spec file" depends="get_buildparams">
-<mkdir dir="${build.dir}"/>
-<mkdir dir="${build.dir}/BUILD"/>
-<mkdir dir="${build.dir}/RPMS"/>
-<mkdir dir="${build.dir}/SOURCES"/>
-<mkdir dir="${build.dir}/SPECS"/>
-<mkdir dir="${build.dir}/SRPMS"/>
-<copy todir="${build.dir}/SPECS" preservelastmodified="true" failonerror="true">
-<fileset dir="${basedir}" includes="*.spec"/>
-</copy>
-<copy todir="${build.dir}/SOURCES" preservelastmodified="true" failonerror="true">
-<fileset dir="${basedir}" includes="*.zip"/>
-<fileset dir="${basedir}" includes="update*"/>
-</copy>
-<rpm specFile="triple-a.spec" topDir="build" cleanBuildDir="false" removeSpec="false" removeSource="false" command="-bb --target ${buildarch} ${buildparams}" failOnError="false"/>
-</target>
+    <property name="projectname"  value="${project}"/>
+    <property name="build.dir"    value="${basedir}/build"/>
+    <property name="release"      value="${release}"/>
+    <property name="buildarch"    value="${arch}"/>
+
+
+    <target name="zip" description="create zip file">
+        <echo>Create zip file</echo>
+
+        <echo file="${basedir}/version.txt" append="false">${version}-${build_number}</echo>
+
+        <zip destfile="${basedir}/triple-a-${version}-${build_number}.zip">
+            <zipfileset dir="${basedir}" excludes="*.pyc,.gitignore,*.zip,.git/*,.coverage" />
+        </zip>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}" />
+    </target>
+
+    <target name="get_buildparams">
+        <echo>Build Arch : ${buildarch}</echo>
+        <echo>Version : ${version}</echo>
+        <echo>Release : ${release}</echo>
+        <echo>Project Name : ${projectname}</echo>
+        <property name="buildparams"  value="--define &quot;buildarch ${buildarch}&quot; --define &quot;version ${version}&quot; --define &quot;release ${release}&quot; --define &quot;projectname ${projectname}&quot;"/>
+    </target>
+
+    <target name="get_version_number">
+        <exec executable="git" outputproperty="TAG_NUMBER">
+            <arg value="rev-list"/>
+            <arg value="--tags"/>
+            <arg value="--max-count=1"/>
+        </exec>
+        <exec executable="git" outputproperty="version">
+            <arg value="describe"/>
+            <arg value="--tag"/>
+            <arg value="${TAG_NUMBER}"/>
+        </exec>
+        <echo>Get Version Number : ${version}</echo>
+    </target>
+
+    <target name="rpm" description="Create rpm by spec file" depends="get_buildparams">
+
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.dir}/BUILD"/>
+        <mkdir dir="${build.dir}/RPMS"/>
+        <mkdir dir="${build.dir}/SOURCES"/>
+        <mkdir dir="${build.dir}/SPECS"/>
+        <mkdir dir="${build.dir}/SRPMS"/>
+
+        <copy todir="${build.dir}/SPECS" preservelastmodified="true" failonerror="true">
+            <fileset dir="${basedir}" includes="*.spec"/>
+        </copy>
+
+        <copy todir="${build.dir}/SOURCES" preservelastmodified="true" failonerror="true">
+            <fileset dir="${basedir}" includes="*.zip"/>
+            <fileset dir="${basedir}" includes="update*"/>
+        </copy>
+
+        <rpm
+            specFile="triple-a.spec"
+            topDir="build"
+            cleanBuildDir="false"
+            removeSpec="false"
+            removeSource="false"
+            command = "-bb --target ${buildarch} ${buildparams}"
+            failOnError="false"
+        />
+    </target>
+
+
 </project>
