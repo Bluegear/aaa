@@ -13,13 +13,14 @@
 
         <echo file="${basedir}/version.txt" append="false">${version}-${build_number}</echo>
 
-        <zip destfile="${build.dir}/${projectname}-${version}-${build_number}.zip">
+        <zip destfile="${basedir}/${projectname}-${version}-${build_number}.zip">
             <zipfileset dir="${basedir}" excludes="*.pyc,.gitignore,*.zip,.git/*,.coverage" />
         </zip>
     </target>
 
     <target name="clean">
         <delete dir="${build.dir}" />
+        <delete file="${basedir}/*.zip" />
     </target>
 
     <target name="get_buildparams">
