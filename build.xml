@@ -13,7 +13,7 @@
 
         <echo file="${basedir}/version.txt" append="false">${version}-${build_number}</echo>
 
-        <zip destfile="${basedir}/triple-a-${version}-${build_number}.zip">
+        <zip destfile="${basedir}/${projectname}-${version}-${build_number}.zip">
             <zipfileset dir="${basedir}" excludes="*.pyc,.gitignore,*.zip,.git/*,.coverage" />
         </zip>
     </target>
