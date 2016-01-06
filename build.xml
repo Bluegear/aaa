@@ -5,6 +5,7 @@
     <property name="build.dir"    value="${basedir}/build"/>
     <property name="release"      value="${release}"/>
     <property name="buildarch"    value="${arch}"/>
+    <property name="build_number"    value="${build_number}"/>
 
 
     <target name="zip" description="create zip file">
