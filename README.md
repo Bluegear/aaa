@@ -1,14 +1,14 @@
 # Development Note
 
 ## Prerequisite on your local environment
-1. python 3.5
+1. python 3.4
 1. pip
 
 ## How to start server after check out
 1. Clone source code from https://github.com/Bluegear/as
 1. Run following commands 
 1. `pip3 install virtualenv`
-1. `virtualenv -p python3.5 venv`
+1. `virtualenv -p python3.4 venv`
 1. `source venv/bin/activate`
 1. For Mac OSX run `xcode-select --install` to avoid installation error with mod_wsgi.
 1. For Mac OSX run `CFLAGS=-I/usr/include/apr-1 pip install mod_wsgi` to compile/install mod_wsgi first.
@@ -40,7 +40,7 @@
 ## Prerequisite on Alpha/Staging
 1. install pip if not exists
 1. `pip3 install virtualenv`
-1. `virtualenv -p python3.5 venv`
+1. `virtualenv -p python3.4 venv`
 1. install http\d if not exists
     - `yum install httpd`
     - `systemctl start httpd`
