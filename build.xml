@@ -20,7 +20,6 @@
 
     <target name="clean">
         <delete dir="${build.dir}" />
-        <delete file="${base.dir}/*.zip" />
     </target>
 
     <target name="get_buildparams">
