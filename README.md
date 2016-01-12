@@ -8,10 +8,11 @@
 1. Clone source code from https://github.com/Bluegear/as
 1. Run following commands 
 1. `pip3 install virtualenv`
-1. `virtualenv -p python3.4 venv`
-1. `source venv/bin/activate`
+1. `virtualenv -p python3.4 venv` (On windows using : `virtualenv —python=3.4 venv`)
+1. `source venv/bin/activate` (On windows using : `venv/Script/activate.bat`)
 1. For Mac OSX run `xcode-select --install` to avoid installation error with mod_wsgi.
 1. For Mac OSX run `CFLAGS=-I/usr/include/apr-1 pip install mod_wsgi` to compile/install mod_wsgi first.
+1. For Windows Please refer to https://github.com/GrahamDumpleton/mod_wsgi/blob/master/win32/README.rst
 1. `pip install -r requirements.txt`
 1. `python manage.py migrate`
 1. Run `python manage.py createsuperuser` and supply these values.
