@@ -172,7 +172,6 @@ class Dev(Configuration):
 
 class Staging(Configuration):
     DEBUG = True
-    DATABASES['default'] =  dj_database_url.config()
 
 class Prod(Configuration):
     DEBUG = False
