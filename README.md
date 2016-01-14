@@ -65,5 +65,18 @@
     - `chgrp apache db.sqlite3`
     - `chmod 774 db.sqlite3`
 
+## Prerequisite for Jenkins
+1. python3.4
+1. pip3
+1. virtualenv
+
+## For Jenkins
+1. `virtualenv -p python3.4 venv`
+1. `source venv/bin/activate`
+1. `pip install -r requirements.txt`
+1. Create directory 'static' if not exists.
+1. `python manage.py collectstatic`
+1. RPM triple-a
+
 ## Run Service on Alpha/Staging
 1. `python manage.py runmodwsgi --user apache group apache --port 80 &`
