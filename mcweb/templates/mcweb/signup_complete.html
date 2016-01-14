@@ -1,11 +1,44 @@
 {% extends "mcweb/mcbase.html" %}
-{% load rest_framework %}
 
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-md-9">
             <h1 class="page-header">Signup complete!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <span id="merchant_name_label">{{form.merchant_name.label_tag}}</span> : <span id="merchant_name_value">{{form.merchant_name.value | default_if_none:""}} </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <span id="merchant_user_name_label">{{form.merchant_user_name.label_tag}}</span> : <span id="merchant_user_name_value">{{form.merchant_user_name.value | default_if_none:""}} </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <span id="merchant_email_label">{{form.merchant_email.label_tag}}</span> : <span id="merchant_email_value">{{form.merchant_email.value | default_if_none:""}} </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <span id="merchant_password_label">{{form.merchant_password.label_tag}}</span> : <span id="merchant_password_value">{{form.merchant_password.value | default_if_none:""}} </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <span id="merchant_address_label">{{form.merchant_address.label_tag}}</span> : <span id="merchant_address_value">{{form.merchant_address.value | default_if_none:""}} </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <span id="merchant_redirect_url_label">{{form.merchant_redirect_url.label_tag}}</span> : <span id="merchant_redirect_url_value">{{form.merchant_redirect_url.value | default_if_none:""}} </span>
         </div>
     </div>
 </div>
